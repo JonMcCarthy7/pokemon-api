@@ -23,7 +23,15 @@ class App extends Component {
   };
 
   addFavorite = pokemon => {
-    this.setState({ favorites: [pokemon, ...this.state.favorites] });
+    if (this.state.favorites.indexOf(pokemon) < 0)
+      this.setState({ favorites: [pokemon, ...this.state.favorites] });
+  };
+
+  removeFavorite = pokemon => {
+    if (this.state.favorites.length === 1) this.setState({ favorites: [] });
+    this.setState({
+      favorites: this.state.favorites.filter(el => el.id !== pokemon.id)
+    });
   };
 
   switchPage = () => {
@@ -53,7 +61,10 @@ class App extends Component {
             </div>
           ) : (
             <div>
-              <Favorites favList={this.state.favorites} />
+              <Favorites
+                favList={this.state.favorites}
+                removeFavorite={this.removeFavorite}
+              />
             </div>
           )}
         </div>
