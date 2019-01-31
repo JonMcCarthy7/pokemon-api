@@ -3,6 +3,11 @@ body {
   background-color: aliceblue;
 }
 
+.pokemon-collection {
+  max-height: 32em;
+  overflow-y: scroll;
+}
+
 input[type="text"]:not(.browser-default):focus:not([readonly]),
 input[type="email"]:not(.browser-default):focus:not([readonly]),
 input[type="password"]:not(.browser-default):focus:not([readonly]),
