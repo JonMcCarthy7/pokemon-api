@@ -1,20 +1,27 @@
 import React from "react";
 
-export default function Nav({ switchPage, searchPage }) {
+export default function Nav({ switchPage, searchPage, favCount }) {
+  const badgeStyle = { float: "none", margin: "0px" };
+
   return (
     <div>
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper red accent-3">
           <div className="container">
-            <span className="brand-logo">Pokemon</span>
+            <span className="brand-logo">Poke-Search</span>
             <ul className="right hide-on-med-and-down">
               {searchPage ? (
                 <li onClick={switchPage}>
-                  <div>Favorites</div>
+                  <span>
+                    Favorites
+                    <span style={badgeStyle} className="badge">
+                      {favCount()}
+                    </span>
+                  </span>
                 </li>
               ) : (
                 <li onClick={switchPage}>
-                  <div>Search Pokemon</div>
+                  <span>Search Pokemon</span>
                 </li>
               )}
             </ul>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchBar from "./components/SearchBar";
 import Pokemon from "./components/Pokemon";
 import Nav from "./components/Nav";
+import Favorites from "./components/Favorites";
 import axios from "./axios";
 
 class App extends Component {
@@ -29,10 +30,18 @@ class App extends Component {
     this.setState({ searchPage: !this.state.searchPage });
   };
 
+  favCount = () => {
+    return this.state.favorites.length;
+  };
+
   render() {
     return (
       <div>
-        <Nav switchPage={this.switchPage} searchPage={this.state.searchPage} />
+        <Nav
+          switchPage={this.switchPage}
+          searchPage={this.state.searchPage}
+          favCount={this.favCount}
+        />
         <div className="App container">
           {this.state.searchPage ? (
             <div>
@@ -43,7 +52,9 @@ class App extends Component {
               />
             </div>
           ) : (
-            <div />
+            <div>
+              <Favorites favList={this.state.favorites} />
+            </div>
           )}
         </div>
       </div>

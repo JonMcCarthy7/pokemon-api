@@ -8,14 +8,17 @@ export default class Pokemon extends Component {
         {this.props.pokemon ? (
           <ul className="collection with-header">
             <li className="collection-header row" style={headerStyles}>
-              <h3 className="col s3">{this.props.pokemon.name}</h3>
-              <span className="col s3">
+              <span className="col s2">
                 <img
                   className="responsive-img"
                   src={this.props.pokemon.sprites.front_default}
                   alt="Pokemon"
                 />
               </span>
+              <h3 className="col s4">
+                {this.props.pokemon.name[0].toUpperCase() +
+                  this.props.pokemon.name.slice(1)}
+              </h3>
               <span className="col s6">
                 <span
                   onClick={() => this.props.addFavorite(this.props.pokemon)}
@@ -36,18 +39,11 @@ export default class Pokemon extends Component {
             </li>
           </ul>
         ) : (
-          // <div
-          //   className="col sm4"
-          //   className="btn-floating btn-large waves-effect waves-light"
-          //   style={{ width: "100px", height: "100px" }}
-          // >
-          //   <img
-          //     className="left responsive-img"
-          //     src={this.props.pokemon.sprites.front_default}
-          //     alt="Pokemon"
-          //   />
-          // </div>
-          ""
+          <div className="center-align">
+            <h1 className="red-text accent-3">
+              Look up any pokemon by Name or ID number! (1-800)
+            </h1>
+          </div>
         )}
       </div>
     );

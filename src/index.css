@@ -1,5 +1,6 @@
 body {
   font-family: "Kanit", sans-serif;
+  background-color: aliceblue;
 }
 
 input[type="text"]:not(.browser-default):focus:not([readonly]),

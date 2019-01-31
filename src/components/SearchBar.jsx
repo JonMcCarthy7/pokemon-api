@@ -23,7 +23,7 @@ export default class SearchBar extends Component {
               <input type="text" id="term" onChange={this.handleChange} />
             </div>
             <div className="input-field col s2">
-              <button className="btn blue">Search</button>
+              <button className="btn red accent-3">Search</button>
             </div>
           </form>
         </div>
